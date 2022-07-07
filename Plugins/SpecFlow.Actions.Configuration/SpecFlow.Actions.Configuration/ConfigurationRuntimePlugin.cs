@@ -2,7 +2,7 @@
 using TechTalk.SpecFlow.Plugins;
 using TechTalk.SpecFlow.UnitTestProvider;
 
-[assembly:RuntimePlugin(typeof(ConfigurationRuntimePlugin))]
+[assembly: RuntimePlugin(typeof(ConfigurationRuntimePlugin))]
 
 namespace SpecFlow.Actions.Configuration
 {
@@ -15,12 +15,12 @@ namespace SpecFlow.Actions.Configuration
             runtimePluginEvents.RegisterGlobalDependencies += RuntimePluginEvents_RegisterGlobalDependencies;
         }
 
-        private void RuntimePluginEvents_RegisterGlobalDependencies(object sender, RegisterGlobalDependenciesEventArgs e)
+        private void RuntimePluginEvents_RegisterGlobalDependencies(object? sender, RegisterGlobalDependenciesEventArgs e)
         {
             e.ObjectContainer.RegisterTypeAs<CurrentTargetIdentifier, CurrentTargetIdentifier>();
         }
 
-        private void RuntimePluginEvents_CustomizeScenarioDependencies(object sender, CustomizeScenarioDependenciesEventArgs e)
+        private void RuntimePluginEvents_CustomizeScenarioDependencies(object? sender, CustomizeScenarioDependenciesEventArgs e)
         {
             e.ObjectContainer.RegisterTypeAs<CurrentTargetIdentifier, CurrentTargetIdentifier>();
             e.ObjectContainer.RegisterTypeAs<SpecFlowActionJsonLocator, ISpecFlowActionJsonLocator>();

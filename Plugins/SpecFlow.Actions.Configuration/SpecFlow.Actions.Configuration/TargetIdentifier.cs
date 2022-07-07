@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -32,11 +31,14 @@ namespace SpecFlow.Actions.Configuration
 
             var specflowActionPath = Path.GetDirectoryName(specflowActionLocation);
 
+            if (specflowActionPath == null)
+            {
+                return new List<string>();
+            }
+
             var targetConfigurations = Directory.GetFiles(specflowActionPath, "specflow.actions.*.json", SearchOption.TopDirectoryOnly);
 
-
             return targetConfigurations.Select(i => _targetNameExtractor.Extract(Path.GetFileName(i))).ToList();
-
         }
     }
 }

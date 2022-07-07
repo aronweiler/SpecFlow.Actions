@@ -44,7 +44,7 @@ namespace SpecFlow.Actions.WindowsAppDriver.Tests
 
             var appDriverConfiguration = GetAppDriverConfiguration(specflowJsonContent);
 
-            appDriverConfiguration.WindowsAppDriverPath.Should().BeNull();
+            appDriverConfiguration.WindowsAppDriverPath?.Should().BeNull();
         }
 
         [Fact]
